@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>   
+        
+        <div>
+            <button id = "btn"> Click To Generate Character</button>
+        </div>
+        
+        <section class="sec">
+            
+            <h1 class = "imgname"> Name</h1>
+            <img class = "img" src="" alt="">
+            
+        </section>
+
+
+    <script src = "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <script>
+
+    const btn = $("#btn");
+    const img = $(".img");
+    const imgname = $(".imgname");
+    btn.on("click", function(){
+             let index = Math.ceil(Math.random()*88);
+             $.get(`https://akabab.github.io/starwars-api/api/id/${index}.json`,function(data){
+             imgname.text(data['name']);
+             img.attr('src',data['image']);
+             img.css({"width":"400px","height":"400px"})
+            }); 
+    });   
+
+    </script>
+
+</body>
+</html>
