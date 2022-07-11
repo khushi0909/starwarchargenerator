@@ -8,3 +8,4 @@
              img.attr('src',data['image']);
              img.css({"width":"400px","height":"400px"})
             }); 
+         })
